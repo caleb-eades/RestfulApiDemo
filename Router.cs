@@ -3,6 +3,7 @@ using System;
 using Nancy.IO;
 using System.IO;
 using PulseAPI;
+using Nancy.ModelBinding;
 
 namespace Example
 {
@@ -22,11 +23,38 @@ namespace Example
 
 		public Program()
 		{
-			Get [""] = _ => {
-				return CreateJsonResponse("{\"hello\":\"World!!!\"}");
+
+			//Create
+			Post ["/API/Example/"] = parameters => {
+				PulseAPI.Example example = this.Bind();
+				string jsonResponse = ExampleController.Create(example);
+				return CreateJsonResponse(jsonResponse);
 			};
 
-			Get["/API/Example/List"] = _ => {
+			//Read
+			Get ["/API/Example/{id}"] = parameters => {
+				var id = parameters.id;
+				string jsonResponse = ExampleController.Read(id);
+				return CreateJsonResponse(jsonResponse);
+			};
+
+			//Update
+			Put["/API/Example/{id}"] = parameters => {
+				var id = parameters.id;
+				var text = this.Request.Query["ExampleText"];
+				string jsonResponse = ExampleController.Update(id, text);
+				return CreateJsonResponse(jsonResponse);
+			};
+
+			//Delete
+			Delete["/API/Example/{id}"] = parameters => {
+				var id = parameters.id;
+				string jsonResponse = ExampleController.Delete(id);
+				return CreateJsonResponse(jsonResponse);
+			};
+
+			//List
+			Get["/API/Example"] = _ => {
 				string jsonResponse = ExampleController.List();
 				return CreateJsonResponse(jsonResponse); 
 			};
