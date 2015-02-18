@@ -39,8 +39,20 @@
       <HintPath>..\Nancy\src\Nancy\bin\MonoRelease\Nancy.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=c7439020c8fedf87">
+      <Package>monodevelop</Package>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Router.cs" />
+    <Compile Include="Models\Example.cs" />
+    <Compile Include="Controllers\ExampleController.cs" />
+    <Compile Include="Bootstrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
+    <Folder Include="Utils\" />
   </ItemGroup>
 </Project>
