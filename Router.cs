@@ -28,7 +28,7 @@ namespace Example
 
 			Get["/API/Example/List"] = _ => {
 				string jsonResponse = ExampleController.List();
-				return jsonResponse;//CreateJsonResponse(jsonResponse); 
+				return CreateJsonResponse(jsonResponse); 
 			};
 		}
 

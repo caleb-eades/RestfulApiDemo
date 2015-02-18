@@ -39,10 +39,7 @@
       <HintPath>..\Nancy\src\Nancy\bin\MonoRelease\Nancy.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=c7439020c8fedf87">
-      <Package>monodevelop</Package>
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+    <Reference Include="Newtonsoft.Json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Router.cs" />
